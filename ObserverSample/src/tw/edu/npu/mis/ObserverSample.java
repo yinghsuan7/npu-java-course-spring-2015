@@ -44,9 +44,6 @@ public class ObserverSample {
         views.add(new View("View 1", window, model));
         views.add(new View("View 2", window, model));
         views.add(new View("View 3", window, model));
-        views.add(new View("View 1", window, model));
-        views.add(new View("View 2", window, model));
-        views.add(new View("View 3", window, model));
 
         // Start the event loop.
         window.startEventLoop(controller, views);
