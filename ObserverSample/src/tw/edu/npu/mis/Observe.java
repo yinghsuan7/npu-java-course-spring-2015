@@ -32,4 +32,5 @@ package tw.edu.npu.mis;
 public interface Observe {
     void update();
     
+    
 }
