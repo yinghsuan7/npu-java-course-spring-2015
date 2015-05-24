@@ -24,13 +24,24 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 package tw.edu.npu.mis;
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author STP
  */
-public interface Observe {
-    void update();
-    
+public class Subject {
+    private List<Observer> mObservers =new ArrayList<>();
+    public void attach(Observer o){
+        mObservers.add(o);
+    }
+    public void detach(Observer o){
+        mObservers.remove(o);
+    }
+    public void notifyObserver(){
+        for (Observer o : mObservers){
+            o.update();
+        }
+    }
     
 }

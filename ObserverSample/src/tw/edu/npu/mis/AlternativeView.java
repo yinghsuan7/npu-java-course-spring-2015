@@ -29,6 +29,36 @@ package tw.edu.npu.mis;
  *
  * @author STP
  */
-public class AlternativeView {
+ 
+
+public  class AlternativeView implements Observer {
+    private final Model mModel;
+    private boolean mIsValid;
     
+    private final String mName;
+    private final Window mWindow;
+    
+
+  
+     public AlternativeView(String name, Window window, Model model) {
+        mName=name;
+        mWindow = window;
+        mModel = model;
+    }
+
+    public boolean isValid(){
+        return mIsValid;
+
+}
+    public void show(){
+        System.out.print("AlternativeView");
+        System.out.println(new StringBuilder(mModel.getData()).reverse());
+        mIsValid = true;
+
+}
+
+    @Override
+    public void update() {
+       show();
+    }
 }
