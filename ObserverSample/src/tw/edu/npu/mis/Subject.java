@@ -24,24 +24,35 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 package tw.edu.npu.mis;
+
 import java.util.ArrayList;
-import java.util.List;
+
 /**
  *
  * @author STP
  */
 public class Subject {
-    private List<Observer> mObservers =new ArrayList<>();
-    public void attach(Observer o){
-        mObservers.add(o);
+    ArrayList<Observer> arraylist = new ArrayList();
+    /**
+     * Add View to ArrayList
+     * @param o 
+     */
+    void Add(Observer o){
+        arraylist.add(o);
     }
-    public void detach(Observer o){
-        mObservers.remove(o);
+    /**
+     * Remove View form ArrayList
+     * @param o 
+     */
+    void reMove(Observer o){
+        arraylist.remove(o);
     }
-    public void notifyObserver(){
-        for (Observer o : mObservers){
+    /**
+     * Notify each view to update
+     */
+    void notifycation(){
+        for(Observer o : arraylist){
             o.update();
         }
     }
-    
 }

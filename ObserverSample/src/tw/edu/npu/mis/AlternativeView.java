@@ -29,36 +29,41 @@ package tw.edu.npu.mis;
  *
  * @author STP
  */
- 
+public class AlternativeView implements Observer,Showable {
 
-public  class AlternativeView implements Observer {
-    private final Model mModel;
-    private boolean mIsValid;
-    
     private final String mName;
     private final Window mWindow;
-    
-
-  
-     public AlternativeView(String name, Window window, Model model) {
-        mName=name;
+    private final Model mModel;
+    /**
+     * AlternativeView Class Construtor
+     * @param name
+     * @param window
+     * @param model 
+     */
+    public AlternativeView(String name, Window window, Model model) {
+        mName = name;
         mWindow = window;
         mModel = model;
+        mModel.Add(this);
     }
 
-    public boolean isValid(){
-        return mIsValid;
+    /**
+     * Invalidate the view, which indicates it needs to be redrawn later.
+     */
+    private void invalidate() {
+        mWindow.schduleRedraw(this);
+    }
 
-}
-    public void show(){
-        System.out.print("AlternativeView");
-        System.out.println(new StringBuilder(mModel.getData()).reverse());
-        mIsValid = true;
-
-}
+    /**
+     * Show the content of the model on the console.
+     */
+    public void onDraw() {
+        System.out.println("AlternativeView (" + mName + "): " + new StringBuilder(mModel.getData()).reverse());
+    }
 
     @Override
     public void update() {
-       show();
+        invalidate();
     }
+
 }
