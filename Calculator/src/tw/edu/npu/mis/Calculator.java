@@ -8,7 +8,9 @@ package tw.edu.npu.mis;
 /**
  * The model class of the calculator application.
  */
-public class Calculator {
+public class Calculator extends java.util.Observable{
+    String k = "",o;
+    int number,number2;
     
     /**
      * The available operators of the calculator.
@@ -34,15 +36,49 @@ public class Calculator {
     }
     
     public void appendDigit(int digit) {
-        // TODO code application logic here
+        k+= String.valueOf(digit);
+        getDisplay();
     }
     
-    public void appendDot() {
-        // TODO code application logic here
+    public void appendDot(String dot) {
+        k+= dot;
+        getDisplay();
     }
     
     public void performOperation(Operator operator) {
-        // TODO code application logic here
+        if(operator == Operator.PLUS)
+        {
+            number=Integer.parseInt(k);
+            k="";
+            getDisplay();
+            o="+";
+            
+        }
+         if(operator == Operator.MINUS)
+        {
+            number=Integer.parseInt(k);
+            k="";
+            getDisplay();
+            o="-";
+            
+        }
+          if(operator == Operator.TIMES)
+        {
+            number=Integer.parseInt(k);
+            k="";
+            getDisplay();
+            o="*";
+            
+        }
+           if(operator == Operator.OVER)
+        {
+            number=Integer.parseInt(k);
+            k="";
+            getDisplay();
+            o="/";
+            
+        }
+        
     }
     
     public String getDisplay() {
