@@ -113,15 +113,22 @@ public class Calculator extends java.util.Observable{
     }
     
     public String getDisplay() {
-        // TODO code application logic here
+       setChanged();
+       notifyObservers(k);
         return null;
     }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-
-}
+   public void setOperation(String text){
+       if(text=="+")performOperation(Operator.PLUS);
+       if(text=="-")performOperation(Operator.MINUS);
+       if(text=="*")performOperation(Operator.TIMES);
+       if(text=="/")performOperation(Operator.OVER);
+       if(text=="=")performOperation(Operator.EQUAL);
+       
+       
+   }
+       
+   }
