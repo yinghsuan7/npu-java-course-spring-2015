@@ -78,6 +78,37 @@ public class Calculator extends java.util.Observable{
             o="/";
             
         }
+            if(operator == Operator.EQUAL)
+        {
+            if(o == "+")
+            {
+                number2 = Integer.parseInt(k);
+                k = String.valueOf(number+number2);
+                getDisplay();
+                k="";    
+            }
+             if(o == "-")
+                {
+                number2 = Integer.parseInt(k);
+                k = String.valueOf(number-number2);
+                getDisplay();
+                k="";    
+            }  
+              if(o == "*")
+                {
+                number2 = Integer.parseInt(k);
+                k = String.valueOf(number*number2);
+                getDisplay();
+                k="";    
+            }
+              if(o == "/")
+                 {
+                number2 = Integer.parseInt(k);
+                k = String.valueOf(number/number2);
+                getDisplay();
+                k="";    
+            } 
+        }
         
     }
     
