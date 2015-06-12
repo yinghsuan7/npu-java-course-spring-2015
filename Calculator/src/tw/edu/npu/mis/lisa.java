@@ -5,16 +5,20 @@
  */
 package tw.edu.npu.mis;
 
+import java.util.Observable;
+
 /**
  *
  * @author STP
  */
-public class lisa extends javax.swing.JFrame {
+public class lisa extends javax.swing.JFrame implements java.util.Observer{
+    Calculator Model;
 
     /**
      * Creates new form lisa
      */
-    public lisa() {
+    public lisa(Calculator model) {
+         Model = model;
         initComponents();
     }
 
@@ -330,7 +334,10 @@ public class lisa extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new lisa().setVisible(true);
+                Calculator model = new Calculator();
+                lisa view = new lisa (model);
+                view.setVisible(true);
+                model.addObserver(view) ;
             }
         });
     }
@@ -354,4 +361,9 @@ public class lisa extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+ @Override
+    public void update(Observable o, Object arg) {
+          jTextField1.setText(arg.toString());
+    }
 }
