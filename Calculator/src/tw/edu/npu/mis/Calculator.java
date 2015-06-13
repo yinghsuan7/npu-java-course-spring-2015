@@ -7,6 +7,7 @@ package tw.edu.npu.mis;
 
 /**
  * The model class of the calculator application.
+ * 宣告Calculator 建構子
  */
 public class Calculator extends java.util.Observable{
     String k = "",o;
