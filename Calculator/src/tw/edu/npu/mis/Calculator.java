@@ -128,6 +128,7 @@ public class Calculator extends java.util.Observable{
        if(text=="*")performOperation(Operator.TIMES);
        if(text=="/")performOperation(Operator.OVER);
        if(text=="=")performOperation(Operator.EQUAL);
+       if(text =="CE") performOperation(Operator.CLEAR_ENTRY);
        
        
    }
